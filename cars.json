@@ -1,0 +1,10 @@
+{
+    "cars": 
+    [
+        {
+            "Name":"Test",
+            "CarID":1,
+            "PricePerDay":50
+        }
+    ]
+}
