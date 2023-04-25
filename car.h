@@ -5,7 +5,6 @@ class CCar
     public:
         CCar(); 
         void SetProperties(int weight, float height, float length, std::string& color, std::string& modell, float price);
-
     private:
         int          m_Weight;
         float        m_Height;
@@ -13,6 +12,7 @@ class CCar
         std::string  m_Color;
         std::string  m_Modell;
         float        m_PricePerDay;
+        bool         m_IsAvailable;
 };
 
 CCar::CCar()
@@ -22,6 +22,7 @@ CCar::CCar()
     , m_Color       ("")
     , m_Modell      ("")
     , m_PricePerDay (0.0)
+    , m_IsAvailable (true)
 {
 }
 

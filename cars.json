@@ -1,0 +1,8 @@
+{
+    "Test":
+        {
+            "CarId": 1,
+            "Modell": "blub",
+            "PricePerDay": 500
+        }
+}
