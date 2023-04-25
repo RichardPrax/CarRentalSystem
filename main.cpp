@@ -4,7 +4,7 @@
 int main()
 {
 
-    std::cout << "Ich bin ein Test";
+    std::cout << "Das war der Test"<<std::endl;
 
     return 0;
 }
