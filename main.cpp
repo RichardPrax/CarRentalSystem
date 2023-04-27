@@ -9,7 +9,8 @@ int main()
     Json::Reader reader;
     Json::Value root;
     reader.parse(file_input, root);
-    std::cout << root;
+    std::cout << root << std::endl;
+    std::cout << root["test"]["CarID"];
     return 0;
 }
 

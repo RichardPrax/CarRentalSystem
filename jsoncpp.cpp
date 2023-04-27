@@ -93,7 +93,7 @@ license you like.
 #define LIB_JSONCPP_JSON_TOOL_H_INCLUDED
 
 #if !defined(JSON_IS_AMALGAMATION)
-#include <include/json/config.h>
+#include "include/json/config.h"
 #endif
 
 // Also support old flag NO_LOCALE_SUPPORT
@@ -244,9 +244,9 @@ Iter fixZerosInTheEnd(Iter begin, Iter end, unsigned int precision) {
 
 #if !defined(JSON_IS_AMALGAMATION)
 #include "include/json/json.h"
-#include <json/assertions.h>
-#include <json/reader.h>
-#include <json/value.h>
+#include "include/json/assertions.h"
+#include "include/json/reader.h"
+#include "include/json/value.h"
 #endif // if !defined(JSON_IS_AMALGAMATION)
 #include <algorithm>
 #include <cassert>
@@ -2430,9 +2430,9 @@ ValueIterator& ValueIterator::operator=(const SelfType& other) {
 // See file LICENSE for detail or copy at http://jsoncpp.sourceforge.net/LICENSE
 
 #if !defined(JSON_IS_AMALGAMATION)
-#include <json/assertions.h>
-#include <json/value.h>
-#include <json/writer.h>
+#include "include/json/assertions.h"
+#include "include/json/value.h"
+#include "include/json/writer.h"
 #endif // if !defined(JSON_IS_AMALGAMATION)
 #include <algorithm>
 #include <cassert>
@@ -4077,7 +4077,7 @@ Value& Path::make(Value& root) const {
 
 #if !defined(JSON_IS_AMALGAMATION)
 #include "include/json/json.h"
-#include <json/writer.h>
+#include "include/json/writer.h"
 #endif // if !defined(JSON_IS_AMALGAMATION)
 #include <algorithm>
 #include <cassert>
