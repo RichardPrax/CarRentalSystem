@@ -3,6 +3,12 @@
 #include <string>
 #include "include/json/json.h"
 
+void Output(std::string &Car, Json::Value &root)
+{
+    std::cout << root [Car]["Name"] << std::endl;
+    std::cout << root [Car]["CarID"] << std::endl;
+    std::cout << root [Car]["PricePerDay"] << std::endl;
+}
 
 int main()
 {
@@ -14,7 +20,9 @@ int main()
     std::cout << root["test"]["CarID"] << std::endl;
     std::cout << root ["test"]["Name"] << std::endl;
     std::string Car1 = "cars";
-    std::cout << root [Car1]["Name"] << std::endl;
+    Output(Car1,root);
+    std::cout << sizeof(Json::Value *) <<std::endl;
+    std::cout << sizeof(&root);
     return 0;
 }
 
