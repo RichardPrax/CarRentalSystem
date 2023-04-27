@@ -8,8 +8,10 @@
 int main()
 {
     std::string Username;
+    std::cout<<"Enter Username: ";
     std::getline(std::cin, Username);
     std::string Password;
+    std::cout<<"Enter Password: ";
     std::getline(std::cin, Password);
     
     if (SetLoginStatus(Username,Password))
