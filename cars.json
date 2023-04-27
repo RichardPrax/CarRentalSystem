@@ -1,19 +1,17 @@
 {
     "cars": 
-    [
-        {
+    {
             "Name":"Test",
             "CarID":1,
             "PricePerDay":50
-        }
-    ],
+    },
 
     "test":
-    [
+    
         {
             "Name":"Test",
             "CarID":2,
             "PricePerDay":200      
         }
-    ]
+    
 }
