@@ -110,10 +110,10 @@ void CCustomer::WriteUserIntoJson()
     std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
     
     //Windows 
-    //std::ofstream outputFileStream("C:/Users/Anwender/OneDrive/Code/privat/C++/OOP/CarRentalSystem/Customers.json");
+    std::ofstream outputFileStream("Customers.json");
     
     // MacOS
-    std::ofstream outputFileStream("/Users/mwolfram/Desktop/Test/CarRentalSystem/Customers.json");
+    //std::ofstream outputFileStream("/Users/mwolfram/Desktop/Test/CarRentalSystem/Customers.json");
     writer -> write(event, &outputFileStream);
 }
 
@@ -124,5 +124,49 @@ void CCustomer::GetCustomerInformation(std::string &Username, Json::Value root)
     std::cout << "Password:"    <<root [Username]["Password"]  << std::endl;
     std::cout << "Birthday:"    <<root [Username]["Birthday"]  << std::endl;
     std::cout << "UserId:"      <<root [Username]["UserId"]    << std::endl;
-
 }
+
+void CCustomer::EditCustomerInformation(Json::Value root, std::string &Username, std::string Propertie, std::string Value)
+{
+    root[Username][Propertie] = Value;
+}  
+
+std::string CCustomer::ChoosePropertie()
+{
+    int choice;
+    std::string Propertie = "";
+    std::cout<<"Choose one propertie!"<<std::endl;
+    std::cout<<"(1) Firstname (2) Lastname (3) Password (4) Birthday"<<std::endl;
+    std::cout<<"Enter choice: ";
+    std::cin>>choice;
+
+    switch (choice)
+    {
+    case 1:
+        Propertie = "Firstname";
+        break;
+    case 2:
+        Propertie = "Lastname";
+        break;
+    case 3:
+        Propertie = "Password";
+        break;
+    case 4:
+        Propertie = "Birthday";
+        break;
+    default:
+    std::cout<<"Invalid choice!"<<std::endl;
+        break;
+    }
+
+    return Propertie;
+}
+
+std::string CCustomer::SetValueForNewPropertie()
+{
+    std::string Value;
+    std::cout<<"Enter new value: ";
+    std::cin>>Value;
+    return Value;
+}
+      

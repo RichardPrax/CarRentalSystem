@@ -12,10 +12,12 @@ class CCustomer
         
         void RegisterCustomer();
         void WriteUserIntoJson();
-
-        void GetCustomerInformation(std::string &Username, Json::Value root);
         std::string GetBirthday();
 
+        void GetCustomerInformation(std::string &Username, Json::Value root);
+        void EditCustomerInformation(Json::Value root, std::string &Username, std::string Propertie, std::string Value);        
+        std::string ChoosePropertie();
+        std::string SetValueForNewPropertie(); 
 
     private:
         std::string m_FirstName;

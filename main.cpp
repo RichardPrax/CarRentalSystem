@@ -67,6 +67,7 @@ int main()
         std::cout<<"Welcome " << Username <<"! Pleas enter an option!"<<std::endl;
         std::cout<<"(1) Rent a car (2) Update account balance (3) Update personal information (4) See personal information"<<std::endl;
         std::cin>>choice;
+        
         switch (choice)
         {
         case 1:
@@ -76,7 +77,7 @@ int main()
         std::cout<<"Enter account balance: ";
             break;
         case 3:
-            std::cout<<"Choose to update: (password, birthday ...)";
+            Customer.EditCustomerInformation(CustomerJSON, Username, Customer.ChoosePropertie(), Customer.SetValueForNewPropertie());
             break;
         case 4:
             Customer.GetCustomerInformation(Username,CustomerJSON);

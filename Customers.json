@@ -7,6 +7,14 @@
         "Password" : "4321",
         "UserId" : 3
     },
+    "dahman" : 
+    {
+        "Birthday" : "01.01.1999",
+        "Firstname" : "David",
+        "Lastname" : "Ahman",
+        "Password" : "hallo",
+        "UserId" : 5
+    },
     "mwolfram" : 
     {
         "Birthday" : "01.01.2000",
