@@ -3,6 +3,7 @@
 #include "customer.h"
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 
 CCustomer::CCustomer()
     : m_FirstName   ("")
@@ -65,14 +66,29 @@ void CCustomer::RegisterCustomer()
     std::cout<<"Password: ";
     std::cin>>Password;
 
-    std::cout<<"Birthday: ";
-    std::cin>>Birthday;
+    
+    Birthday = GetBirthday();
 
     m_FirstName = FirstName;
     m_LastName = LastName;
     m_UserId = std::stoi(UserId);
     m_Password = Password;
     m_Birthday = Birthday;
+    m_Username = m_FirstName.at(0) + m_LastName;
+    // transform Username to lower case
+    std::transform(m_Username.begin(), m_Username.end(), m_Username.begin(), ::tolower);
+}
+
+std::string CCustomer::GetBirthday()
+{
+    std::string Birthday;
+    do
+    {
+        std::cout<<"Birthday (DD.MM.YYYY): ";
+        std::cin>>Birthday;
+    } while (Birthday.length() !=10 || Birthday.at(2) != '.' || Birthday.at(5) != '.');
+
+    return Birthday;
 }
 
 void CCustomer::WriteUserIntoJson()
@@ -81,11 +97,11 @@ void CCustomer::WriteUserIntoJson()
     Json::Value event = CCustomer::CustomerJSONReader(); 
     
     // defines new customer based on Firstname
-    event[m_FirstName]["Firstname"] = m_FirstName;
-    event[m_FirstName]["Lastname"]  = m_LastName;
-    event[m_FirstName]["UserId"]    = m_UserId;
-    event[m_FirstName]["Password"]  = m_Password;
-    event[m_FirstName]["Birthday"]  = m_Birthday;
+    event[m_Username]["Firstname"] = m_FirstName;
+    event[m_Username]["Lastname"]  = m_LastName;
+    event[m_Username]["UserId"]    = m_UserId;
+    event[m_Username]["Password"]  = m_Password;
+    event[m_Username]["Birthday"]  = m_Birthday;
 
     // writes old + new Users into file
     Json::StreamWriterBuilder builder;

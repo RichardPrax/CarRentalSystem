@@ -14,11 +14,14 @@ class CCustomer
         void WriteUserIntoJson();
 
         void GetCustomerInformation(std::string &User, Json::Value root);
+        std::string GetBirthday();
 
+        
     private:
         std::string m_FirstName;
         std::string m_LastName;
         int         m_UserId;
+        std::string m_Username; // Username has format Example: rprax, Name Richard Prax, mwolfram, Name Max Wolfram 
         std::string m_Password;
         std::string m_Birthday;
     
