@@ -23,7 +23,7 @@ Json::Value CCustomer::CustomerJSONReader()
     return root;
 }
 
-bool CCustomer::CheckLogin(Json::Value root, std::string& Username, std::string& Password)
+bool CCustomer::CheckLogin(Json::Value root, std::string &Username, std::string &Password)
 {
     bool IsCorret = false;
     std::string CorrectPassword = "Password";
@@ -34,7 +34,7 @@ bool CCustomer::CheckLogin(Json::Value root, std::string& Username, std::string&
     return IsCorret;
 }
 
-bool CCustomer::SetLoginStatus(std::string& Username, std::string& Password)
+bool CCustomer::SetLoginStatus(std::string &Username, std::string &Password)
 {
     bool IsLoggedIn = false;
     if (CCustomer::CheckLogin(CCustomer::CustomerJSONReader(),Username,Password))
@@ -108,7 +108,12 @@ void CCustomer::WriteUserIntoJson()
     builder["commentStyle"] = "None";
     builder["indentation"] = "    ";
     std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
-    std::ofstream outputFileStream("C:/Users/Anwender/OneDrive/Code/privat/C++/OOP/CarRentalSystem/Customers.json");
+    
+    //Windows 
+    //std::ofstream outputFileStream("C:/Users/Anwender/OneDrive/Code/privat/C++/OOP/CarRentalSystem/Customers.json");
+    
+    // MacOS
+    std::ofstream outputFileStream("/Users/mwolfram/Desktop/Test/CarRentalSystem/Customers.json");
     writer -> write(event, &outputFileStream);
 }
 
