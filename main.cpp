@@ -7,13 +7,13 @@
 
 int main()
 {
+    /*
     std::string Username;
     std::cout<<"Enter Username: ";
     std::getline(std::cin, Username);
     std::string Password;
     std::cout<<"Enter Password: ";
     std::getline(std::cin, Password);
-    
     if (SetLoginStatus(Username,Password))
     {
         Output(Username,CustomerJSONReader());
@@ -22,19 +22,12 @@ int main()
     {
         std::cout<<"Invalid login!"<<std::endl;
     }
-
-
-
-
-    /*
-    std::cout << root << std::endl;
-    std::cout << root["test"]["CarID"] << std::endl;
-    std::cout << root ["test"]["Name"] << std::endl;
-    std::string Car1 = "cars";
-    Output(Car1,root);
-    std::cout << sizeof(Json::Value *) <<std::endl;
-    std::cout << sizeof(&root);
     */
+
+   CCustomer Customer1;
+   Customer1.RegisterCustomer();
+   Customer1.WriteUserIntoJson();
+
     return 0;
 }
 
