@@ -47,58 +47,56 @@ bool CCustomer::SetLoginStatus(std::string& Username, std::string& Password)
 void CCustomer::RegisterCustomer()
 {
     // local Variables
-    std::string FirstName;
-    std::string LastName;
-    int         UserId;
-    std::string Password;
-    std::string Birthday;
+    std::string FirstName="";
+    std::string LastName="";
+    std::string UserId="";
+    std::string Password="";
+    std::string Birthday="";
 
     std::cout<<"Firstname: ";
-    std::getline(std::cin,FirstName);
-    m_FirstName = FirstName;
+    std::cin>>FirstName;
 
     std::cout<<"Lastname: ";
-    std::getline(std::cin,LastName);
-    m_LastName = LastName;
-
+    std::cin>>LastName;
+    
     std::cout<<"UserId: ";
     std::cin>>UserId;
-    std::cout<<std::endl;
-    m_UserId = UserId;
 
     std::cout<<"Password: ";
-    std::getline(std::cin,Password);
-    m_Password = Password;
+    std::cin>>Password;
 
     std::cout<<"Birthday: ";
-    std::getline(std::cin,Birthday);
+    std::cin>>Birthday;
+
+    m_FirstName = FirstName;
+    m_LastName = LastName;
+    m_UserId = std::stoi(UserId);
+    m_Password = Password;
     m_Birthday = Birthday;
 }
 
 void CCustomer::WriteUserIntoJson()
 {
-    Json::Value event;
+    // load old customer file into event
+    Json::Value event = CCustomer::CustomerJSONReader(); 
+    
+    // defines new customer based on Firstname
     event[m_FirstName]["Firstname"] = m_FirstName;
     event[m_FirstName]["Lastname"]  = m_LastName;
     event[m_FirstName]["UserId"]    = m_UserId;
     event[m_FirstName]["Password"]  = m_Password;
     event[m_FirstName]["Birthday"]  = m_Birthday;
 
+    // writes old + new Users into file
     Json::StreamWriterBuilder builder;
     builder["commentStyle"] = "None";
-    builder["indentation"] = " ";
-
+    builder["indentation"] = "    ";
     std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
-    std::ofstream outputFileStream("/test.json");
+    std::ofstream outputFileStream("C:/Users/Anwender/OneDrive/Code/privat/C++/OOP/CarRentalSystem/Customers.json");
     writer -> write(event, &outputFileStream);
 }
 
-std::string CCustomer::GetCustomer(std::string& Username)
-{
-
-}
-
-void CCustomer::Output(std::string &User, Json::Value root)
+void CCustomer::GetCustomerInformation(std::string &User, Json::Value root)
 {
     std::cout << "Name:"     <<root [User]["Name"]          << std::endl;
     std::cout << "UserID:"   <<root [User]["UserID"]        << std::endl;

@@ -9,12 +9,11 @@ class CCustomer
         Json::Value CustomerJSONReader();
         bool CheckLogin(Json::Value root, std::string& Username, std::string& Password);
         bool SetLoginStatus(std::string& Username, std::string& Password);
-        void Output(std::string &User, Json::Value root);
-
+        
         void RegisterCustomer();
         void WriteUserIntoJson();
-        
-        std::string GetCustomer(std::string& Username);
+
+        void GetCustomerInformation(std::string &User, Json::Value root);
 
     private:
         std::string m_FirstName;

@@ -1,16 +1,26 @@
 {
-    "Richard": 
+    "Anna" : 
     {
-        "Name":"Richard",
-        "UserID":1,
-        "Password":"1234",
-        "Birthday": "01.01.2000"
+        "Birthday" : "01.02.2000",
+        "Firstname" : "Anna",
+        "Lastname" : "Beate",
+        "Password" : "test",
+        "UserId" : 3
     },
-    "Max":
+    "Max" : 
     {
-        "Name":"Max",
-        "UserID":2,
-        "Password":"4321",
-        "Birthday": "01.01.2000"  
+        "Birthday" : "01.01.2000",
+        "Firstname" : "Max",
+        "Lastname" : "Mustermann",
+        "Password" : "1234",
+        "UserId" : 1
+    },
+    "Rainer" : 
+    {
+        "Birthday" : "01.01.2000",
+        "Firstname" : "Rainer",
+        "Lastname" : "Zufall",
+        "Password" : "4321",
+        "UserId" : 2
     }
 }
