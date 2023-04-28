@@ -112,10 +112,12 @@ void CCustomer::WriteUserIntoJson()
     writer -> write(event, &outputFileStream);
 }
 
-void CCustomer::GetCustomerInformation(std::string &User, Json::Value root)
+void CCustomer::GetCustomerInformation(std::string &Username, Json::Value root)
 {
-    std::cout << "Name:"     <<root [User]["Name"]          << std::endl;
-    std::cout << "UserID:"   <<root [User]["UserID"]        << std::endl;
-    std::cout << "Password:" <<root [User]["Password"]      << std::endl;
-    std::cout << "Birthday:" <<root [User]["Birthday"]      << std::endl;
+    std::cout << "Firstname:"   <<root [Username]["Firstname"] << std::endl;
+    std::cout << "Lastname:"    <<root [Username]["Lastname"]  << std::endl;
+    std::cout << "Password:"    <<root [Username]["Password"]  << std::endl;
+    std::cout << "Birthday:"    <<root [Username]["Birthday"]  << std::endl;
+    std::cout << "UserId:"      <<root [Username]["UserId"]    << std::endl;
+
 }
