@@ -12,19 +12,19 @@ int main()
     std::string Password;
     CCustomer Customer;
     bool IsLoggedIn = false;
-    int choice;
+    int ChoiceOuterMenue;
     do
     {
         std::cout<<"Welcome to our car rental system!"<<std::endl;
         std::cout<<"(1) Register a new account (2) Login (3) Exit"<<std::endl;
-        std::cin>>choice;
+        std::cin>>ChoiceOuterMenue;
 
-        switch (choice)
+        switch (ChoiceOuterMenue)
         {
         case 1:
             Customer.RegisterCustomer();
             Customer.WriteUserIntoJson();
-            choice = 1;
+            ChoiceOuterMenue = 1;
             break;
 
         case 2:
@@ -38,7 +38,7 @@ int main()
             {
                 std::cout<<"Sucessfully logged in!"<<std::endl;
                 IsLoggedIn = true;
-                choice = 3;
+                ChoiceOuterMenue = 3;
             }
             else
             {
@@ -48,46 +48,51 @@ int main()
 
         case 3:
             system("cls");
-            std::cout<<"Successfully logged out!"<<std::endl;
             std::cout<<"See you next time!"<<std::endl;
-            choice = 3;
+            ChoiceOuterMenue = 3;
             break;
 
         default:
             std::cout<<"Invalid choice!"<<std::endl;
             break;
         }
-
-    } while (choice != 3);
-    
-    if (IsLoggedIn)
-    {
-        Json::Value CustomerJSON = Customer.CustomerJSONReader();
-        int choice;
-        std::cout<<"Welcome " << Username <<"! Pleas enter an option!"<<std::endl;
-        std::cout<<"(1) Rent a car (2) Update account balance (3) Update personal information (4) See personal information"<<std::endl;
-        std::cin>>choice;
-        
-        switch (choice)
+        ChoiceOuterMenue = 0;
+        if (IsLoggedIn)
         {
-        case 1:
-            std::cout<<"No car available!"<<std::endl;
-            break;
-        case 2:
-        std::cout<<"Enter account balance: ";
-            break;
-        case 3:
-            Customer.EditCustomerInformation(CustomerJSON, Username, Customer.ChoosePropertie(), Customer.SetValueForNewPropertie());
-            break;
-        case 4:
-            Customer.GetCustomerInformation(Username,CustomerJSON);
-            break;
-        default:
-            std::cout<<"Ivalid option!"<<std::endl;
-            break;
-        }
-    }
-    
+            Json::Value CustomerJSON = Customer.CustomerJSONReader();
+            int ChoiceInnerMenue;
+            do
+            {
+                std::cout<<"Welcome " << Username <<"! Pleas enter an option!"<<std::endl;
+                std::cout<<"(1) Rent a car (2) Update account balance (3) Update personal information (4) See personal information (5) Logout"<<std::endl;
+                std::cin>>ChoiceInnerMenue;
 
+                switch (ChoiceInnerMenue)
+                    {
+                        case 1:
+                            std::cout<<"No car available!"<<std::endl;
+                            break;
+                        case 2:
+                        std::cout<<"Enter account balance: ";
+                            break;
+                        case 3:
+                            Customer.EditCustomerInformation(CustomerJSON, Username, Customer.ChoosePropertie(), Customer.SetValueForNewPropertie());
+                            break;
+                        case 4:
+                            Customer.GetCustomerInformation(Username,CustomerJSON);
+                            break;
+                        case 5:
+                            std::cout<<"Sucessfully logged out!"<<std::endl;
+                            ChoiceInnerMenue = 5;
+                            break;
+                        default:
+                            std::cout<<"Ivalid option!"<<std::endl;
+                            break;
+                    }
+            } while (ChoiceInnerMenue != 5); 
+            std::cout<<"(1) Register a new account (2) Login (3) Exit"<<std::endl;
+            std::cin>>ChoiceOuterMenue;
+        }
+    } while (ChoiceOuterMenue != 3);
     return 0;
 }

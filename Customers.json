@@ -15,6 +15,14 @@
         "Password" : "hallo",
         "UserId" : 5
     },
+    "mschneider" : 
+    {
+        "Birthday" : "01.01.2000",
+        "Firstname" : "Michael",
+        "Lastname" : "Schneider",
+        "Password" : "0000",
+        "UserId" : 6
+    },
     "mwolfram" : 
     {
         "Birthday" : "01.01.2000",
@@ -27,8 +35,8 @@
     {
         "Birthday" : "21.06.2003",
         "Firstname" : "Richard",
-        "Lastname" : "Prax",
-        "Password" : "10",
+        "Lastname" : "prax",
+        "Password" : "1111",
         "UserId" : 1
     },
     "rzufall" : 
