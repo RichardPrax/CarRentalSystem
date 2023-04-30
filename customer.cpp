@@ -110,7 +110,7 @@ void CCustomer::WriteUserIntoJson()
     std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
     
     //Windows 
-    std::ofstream outputFileStream("Customers.json");
+    std::ofstream outputFileStream("C:/Users/Anwender/OneDrive/Code/privat/C++/OOP/CarRentalSystem/Customers.json");
     
     // MacOS
     //std::ofstream outputFileStream("/Users/mwolfram/Desktop/Test/CarRentalSystem/Customers.json");
@@ -129,6 +129,18 @@ void CCustomer::GetCustomerInformation(std::string &Username, Json::Value root)
 void CCustomer::EditCustomerInformation(Json::Value root, std::string &Username, std::string Propertie, std::string Value)
 {
     root[Username][Propertie] = Value;
+
+    Json::StreamWriterBuilder builder;
+    builder["commentStyle"] = "None";
+    builder["indentation"] = "    ";
+    std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
+    
+    //Windows 
+    std::ofstream outputFileStream("C:/Users/Anwender/OneDrive/Code/privat/C++/OOP/CarRentalSystem/Customers.json");
+    
+    // MacOS
+    //std::ofstream outputFileStream("/Users/mwolfram/Desktop/Test/CarRentalSystem/Customers.json");
+    writer -> write(root, &outputFileStream);
 }  
 
 std::string CCustomer::ChoosePropertie()
