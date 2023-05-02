@@ -7,7 +7,7 @@ class CCustomer
     public:
         CCustomer();
         Json::Value CustomerJSONReader();
-        bool CheckLogin(Json::Value root, std::string& Username, std::string& Password);
+        bool CheckLogin(Json::Value root, std::string &Username, std::string &Password);
         bool SetLoginStatus(std::string& Username, std::string& Password);
         
         void RegisterCustomer();
