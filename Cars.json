@@ -1,0 +1,28 @@
+{
+    "Sport":
+        {
+            "Tesla":
+                {
+                    "Weight": 1000,
+                    "Height": 150,
+                    "Lenght": 300,
+                    "Modell": "S",
+                    "PS": 100,
+                    "Color": "White",
+                    "PricePerDay":500
+                }
+        },
+    "Hobby":
+        {
+            "BobbyCar":
+                {
+                    "Weight": 1000,
+                    "Height": 150,
+                    "Lenght": 300,
+                    "Modell": "S",
+                    "PS": 100,
+                    "Color": "White",
+                    "PricePerDay":500
+                }    
+        }
+}

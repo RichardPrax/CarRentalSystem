@@ -90,9 +90,21 @@ int main()
                             break;
                     }
             } while (ChoiceInnerMenue != 5); 
-            std::cout<<"(1) Register a new account (2) Login (3) Exit"<<std::endl;
-            std::cin>>ChoiceOuterMenue;
+            if (ChoiceInnerMenue !=3)
+            {
+                std::cout<<"(1) Register a new account (2) Login (3) Exit"<<std::endl;
+                std::cin>>ChoiceOuterMenue;
+            }
+            
         }
     } while (ChoiceOuterMenue != 3);
+
+
+    std::ifstream cars_input("Cars.json");
+    Json::Reader reader;
+    Json::Value TestCars;
+    reader.parse(cars_input,TestCars);
+    std::cout<<TestCars["Sport"]["Tesla"];
+    std::cout<<TestCars["Hobby"]["BobbyCar"];
     return 0;
 }
