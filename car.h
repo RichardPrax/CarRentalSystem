@@ -1,10 +1,11 @@
-#include <iostream>
+#include "include/json/json.h"
 
 class CCar
 {
     public:
         CCar(); 
-        void SetProperties(int weight, float height, float length, std::string& color, std::string& modell, float price);
+        void SetProperties(int weight, float height, float length, std::string &color, std::string &modell, float price);
+
     private:
         int          m_Weight;
         float        m_Height;
